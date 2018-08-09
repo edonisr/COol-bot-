@@ -82,4 +82,4 @@ client.on("message", msg => {
   }
 });
 
-client.login('NDcxMjI5MzE4OTEyMjc4NTI5.DkzZ0Q.Ycx04yaoWWGck4K_9q-OWn-pvag');
+client.login('my token is here but i will not tell it');
