@@ -1,0 +1,85 @@
+const Discord = require('discord.js');
+const client = new Discord.Client();
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!,also i am super ready horay lel`);
+});
+
+var prefix = "/"
+
+client.on('message', msg => {
+  if (msg.content === (prefix + 'ping')) {
+    msg.channel.send({embed: {
+  color: 1,
+  description: "Pong!"
+}});
+  }
+  else if (msg.content === (prefix +'help')) {
+     msg.channel.send('I sended the help in dms');
+     msg.author.send({embed: {
+    color: 888888,
+      description: "Hello someone my commands are:\n/userinfo,\n/infoserver,\n/sanic,\n/invite sanic,\n/dab,\n/bot dev,\n/joy,\n/angry,\n/hello,\n/id.\nAlso these are my first commands so my developer will add them soon :)"
+}});
+  }
+  else if (msg.content === (prefix + 'userinfo')) {
+        msg.channel.send('Your username: ' + msg.author.username + '\nYour ID: ' + msg.author.id + '\nAvatar: ' + msg.author.avatarURL);
+    }
+   else if (msg.content === (prefix + 'infoserver')) {
+        msg.channel.send('Guild name: ' + msg.guild.name + '\nTotal members: ' + msg.guild.memberCount + '\nDate created: ' + msg.guild.createdAt + '\nRegion: ' + msg.guild.region);
+    }
+     else if (msg.content === (prefix + 'sanic')) {
+          msg.channel.send('sanic is awesome,hug him anytime if you want ti be in his server type /invite sanic');
+     }
+      else if (msg.content === (prefix + 'invite sanic')) {
+           msg.channel.send('https://discord.gg/tJqCUz8');
+      }
+       else if (msg.content === (prefix + 'dab')) {
+      msg.channel.send('https://www.joypixels.com/assets/custom/the_dab.png');
+      }
+       else if (msg.content === (prefix + 'bot dev')) {
+       msg.channel.send('My developer is Narutoboi#1629 ok ?');
+      }
+     else if (msg.content === (prefix + 'joy')) {
+         msg.channel.send('https://i.dailymail.co.uk/i/pix/2015/11/17/01/2E82981600000578-0-image-a-102_1447722722959.jpg');
+       }
+      else if (msg.content === (prefix + 'angry')) {
+          msg.channel.send('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS1zWO5OdVX3LL-sYMmG1bKGW7lvNwt7EvJ9Yh6nzw6SwMK57imA');
+       }
+       else if (msg.content === (prefix + 'i hate you')) {
+          msg.channel.send('I dont care do i? and also if you hate me why you are using me for commands');
+       }
+});
+  client.on("message", msg => {
+    if (msg.content.startsWith ("/hello")) {
+            var member= msg.mentions.members.first();
+              msg.channel.send("hello  "    +  msg.author.username  +   "   whats up" );
+    }
+}); 
+    client.on("message", msg => {
+    if (msg.content.startsWith ("/id")) {
+            var member = msg.mentions.members.first();
+              msg.channel.send( "Your id:  "  +  msg.author.id   +  "  there are you happy now");
+   }
+});
+client.on("message", (message) => {
+    if (message.content.startsWith("/kick")) {
+        // Easy way to get member object though mentions.
+        var member= message.mentions.members.first();
+        // Kick
+        member.kick().then((member) => {
+            // Successmessage
+            message.channel.send("Member " + member.displayName + " has been successfully kicked ");
+        }).catch(() => {
+             // Failmessage
+            message.channel.send("I cannot kick the user because i do not have permission or the user has a higer role than both of us");
+        });
+    }
+});
+client.on("message", msg => {
+  if (msg.content.startsWith("/dlt 1000")) {
+    msg.channel.send('Deleted 1000 messages suscesufllyy');
+    msg.delete(1000);
+  }
+});
+
+client.login('NDcxMjI5MzE4OTEyMjc4NTI5.DkzZ0Q.Ycx04yaoWWGck4K_9q-OWn-pvag');
